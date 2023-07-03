@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_22sp">22sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
     <dimen name="radius_button_corners">16dp</dimen>
     <dimen name="settings_item_height">56dp</dimen>
+    <dimen name="main_layout_height">0dp</dimen>
+    <dimen name="main_bt_lay_margine_vertical">4dp</dimen>
+    <dimen name="settings_item_margin_start">16dp</dimen>
+    <dimen name="settings_item_margin_end">24dp</dimen>
+    <dimen name="settings_icon_button_width">35dp</dimen>
+    <dimen name="settings_button_icon_padding">0dp</dimen>
 </resources>

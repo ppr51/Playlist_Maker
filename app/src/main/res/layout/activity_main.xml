@@ -4,28 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FF546FE0" >
+    android:background="@color/blue_main" >
 
-    <FrameLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="start"
         android:paddingStart="16dp"
         android:paddingTop="14dp"
-        android:paddingBottom="16dp" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_22sp" />
-
-    </FrameLayout>
+        android:paddingBottom="16dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_22sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/main_layout_height"
         android:layout_weight="1"
         android:orientation="vertical"
         android:paddingTop="24dp"
@@ -35,9 +29,9 @@
         <Button
             android:id="@+id/search_button"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/main_layout_height"
             android:layout_weight="1"
-            android:layout_marginVertical="4dp"
+            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
             android:backgroundTint="@color/white"
             android:textAllCaps="false"
             android:text="@string/searching"
@@ -50,9 +44,9 @@
         <Button
             android:id="@+id/media_button"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/main_layout_height"
             android:layout_weight="1"
-            android:layout_marginVertical="4dp"
+            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
             android:backgroundTint="@color/white"
             android:textAllCaps="false"
             android:text="@string/media"
@@ -65,9 +59,9 @@
         <Button
             android:id="@+id/settings_button"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/main_layout_height"
             android:layout_weight="1"
-            android:layout_marginVertical="4dp"
+            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
             android:backgroundTint="@color/white"
             android:textAllCaps="false"
             android:text="@string/settings"
