@@ -54,7 +54,8 @@
         <TextView style="@style/SettingsActivity_TextStyle"
             android:text="@string/share_app" />
 
-        <Button style="@style/SettingsActivity_ButtonsStyle"
+        <Button android:id="@+id/shareLinkOnApp"
+            style="@style/SettingsActivity_ButtonsStyle"
             app:icon="@drawable/vector_share_app" />
     </FrameLayout>
 
@@ -64,7 +65,8 @@
         <TextView style="@style/SettingsActivity_TextStyle"
             android:text="@string/write_to_support" />
 
-        <Button style="@style/SettingsActivity_ButtonsStyle"
+        <Button  android:id="@+id/connectToSupport"
+            style="@style/SettingsActivity_ButtonsStyle"
             app:icon="@drawable/vector_support" />
     </FrameLayout>
 
@@ -72,9 +74,10 @@
     <FrameLayout style="@style/SettingsActivity_FrameLayoutStyle">
 
         <TextView style="@style/SettingsActivity_TextStyle"
-            android:text="@string/therms_of_use" />
+            android:text="@string/user_agreement" />
 
-        <Button style="@style/SettingsActivity_ButtonsStyle"
+        <Button android:id="@+id/userAgreement"
+            style="@style/SettingsActivity_ButtonsStyle"
             app:icon="@drawable/vector_right_arrow" />
     </FrameLayout>
 
