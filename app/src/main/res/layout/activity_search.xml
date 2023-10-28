@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    tools:context=".SearchActivity"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Заголовок -->
+    <FrameLayout style="@style/SearchActivity_FrameStyle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <Button style="@style/SettingsActivity_BackButtonStyle"
+                android:id="@+id/back_from_search_to_main_button"
+                android:layout_width="28dp"
+                app:icon="@drawable/vector_back_arrow"
+                />
+
+            <TextView style="@style/SettingsActivity_TextStyle"
+                android:layout_marginStart="20dp"
+                android:text="@string/searching"
+                android:textSize="@dimen/text_22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/ys_display_medium"
+                android:textFontWeight="500"/>
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <!--    Строка поиска-->
+    <FrameLayout style="@style/SearchActivity_FrameStyle">
+
+        <LinearLayout style="@style/SearchLine_LinearLayoutStyle">
+
+            <ImageView
+                style="@style/SearchLine_PrefixIconStyle"
+                android:src="@drawable/vector_search_icon" />
+
+            <EditText
+                android:id="@+id/searchingLine"
+                style="@style/SearchLine_EditTextStyle"/>
+
+            <Button
+                android:id="@+id/clearButton"
+                style="@style/SearchLine_ClearButton_Style"
+                app:icon="@android:drawable/ic_menu_close_clear_cancel"
+                android:visibility="gone"  />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>
