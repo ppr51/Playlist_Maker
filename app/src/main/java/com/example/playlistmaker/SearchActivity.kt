@@ -11,6 +11,24 @@ import android.widget.Button
 import android.widget.EditText
 
 class SearchActivity : AppCompatActivity() {
+
+    private var textInSearchLine: String = ""
+    companion object {
+        const val TEXT_IN_SEARCH_LINE = "TEXT_IN_SEARCH_LINE"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(TEXT_IN_SEARCH_LINE, textInSearchLine)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        textInSearchLine = savedInstanceState.getString(TEXT_IN_SEARCH_LINE, "")
+        val searchingLine = findViewById<EditText>(R.id.searchingLine)
+        searchingLine.setText(textInSearchLine)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -40,6 +58,7 @@ class SearchActivity : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable?) {
                 // empty
+                textInSearchLine = s.toString()
             }
         }
         searchingLine.addTextChangedListener(searchLineTextWatcher)
