@@ -31,13 +31,11 @@ class SettingsActivity : AppCompatActivity() {
         bConnectToSupport.setOnClickListener{
             val connectToSupportIntent = Intent(Intent.ACTION_SENDTO)
             connectToSupportIntent.type = "text/plain"
-            connectToSupportIntent.data = Uri.parse("mailto:")
             val supportEmail = getString(R.string.support_email)
-            connectToSupportIntent.putExtra(Intent.EXTRA_EMAIL,supportEmail)
             val supportEmailTheme = getString(R.string.support_email_theme)
-            connectToSupportIntent.putExtra(Intent.EXTRA_SUBJECT,supportEmailTheme)
             val supportEmailBody = getString(R.string.support_email_body)
-            connectToSupportIntent.putExtra(Intent.EXTRA_TEXT,supportEmailBody)
+            connectToSupportIntent.data = Uri.parse("mailto:$supportEmail?subject="
+                    + Uri.encode(supportEmailTheme) + "&body=" + Uri.encode(supportEmailBody))
             startActivity(connectToSupportIntent)
         }
 

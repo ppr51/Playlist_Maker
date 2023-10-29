@@ -8,7 +8,9 @@
     android:orientation="vertical">
 
     <!-- Заголовок -->
-    <FrameLayout style="@style/SearchActivity_FrameStyle">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_frame_item_height">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,23 +36,54 @@
     </FrameLayout>
 
     <!--    Строка поиска-->
-    <FrameLayout style="@style/SearchActivity_FrameStyle">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_frame_item_height" >
 
-        <LinearLayout style="@style/SearchLine_LinearLayoutStyle">
+        <LinearLayout style="@style/SearchLine_LinearLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/search_item_margin_start"
+            android:layout_marginEnd="@dimen/search_item_margin_end"
+            android:layout_marginTop="@dimen/search_string_margin_bottom_top"
+            android:layout_marginBottom="@dimen/search_string_margin_bottom_top"
+            android:orientation="horizontal" >
 
             <ImageView
                 style="@style/SearchLine_PrefixIconStyle"
-                android:src="@drawable/vector_search_icon" />
+                android:layout_width="@dimen/search_prefix_icon_side_size"
+                android:layout_height="@dimen/search_prefix_icon_side_size"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:layout_marginLeft="@dimen/search_prefix_icon_margin_left"
+                android:layout_marginRight="@dimen/search_prefix_icon_margin_right"
+                android:layout_marginTop="@dimen/search_prefix_icon_margin_bottom_top"
+                android:layout_marginBottom="@dimen/search_prefix_icon_margin_bottom_top"
+                />
 
-            <EditText
+            <EditText style="@style/SearchLine_EditTextStyle"
                 android:id="@+id/searchingLine"
-                style="@style/SearchLine_EditTextStyle"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLength="5"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="@string/search_hint"
+                android:layout_marginTop="@dimen/search_edittext_margin_bottom_top"
+                android:layout_marginBottom="@dimen/search_edittext_margin_bottom_top"
+                android:layout_marginRight="@dimen/search_edittext_margin_right"
+                />
 
-            <Button
+            <Button style="@style/SearchLine_ClearButton_Style"
                 android:id="@+id/clearButton"
-                style="@style/SearchLine_ClearButton_Style"
-                app:icon="@android:drawable/ic_menu_close_clear_cancel"
-                android:visibility="gone"  />
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/settings_button_icon_padding"
+                android:visibility="gone"
+                />
         </LinearLayout>
     </FrameLayout>
 

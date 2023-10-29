@@ -13,7 +13,10 @@ import android.widget.EditText
 class SearchActivity : AppCompatActivity() {
 
     private var textInSearchLine: String = ""
-    companion object {
+    private lateinit var searchingLine:EditText
+    private lateinit var bBack:Button
+    private lateinit var clearButton:Button
+    private companion object {
         const val TEXT_IN_SEARCH_LINE = "TEXT_IN_SEARCH_LINE"
     }
 
@@ -25,7 +28,6 @@ class SearchActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         textInSearchLine = savedInstanceState.getString(TEXT_IN_SEARCH_LINE, "")
-        val searchingLine = findViewById<EditText>(R.id.searchingLine)
         searchingLine.setText(textInSearchLine)
     }
 
@@ -33,13 +35,14 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val bBack = findViewById<Button>(R.id.back_from_search_to_main_button)
+        searchingLine = findViewById<EditText>(R.id.searchingLine)
+        bBack = findViewById<Button>(R.id.back_from_search_to_main_button)
+        clearButton = findViewById<Button>(R.id.clearButton)
+
         bBack.setOnClickListener{
             finish()
         }
 
-        val searchingLine = findViewById<EditText>(R.id.searchingLine)
-        val clearButton = findViewById<Button>(R.id.clearButton)
         clearButton.setOnClickListener {
             searchingLine.setText("")
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
