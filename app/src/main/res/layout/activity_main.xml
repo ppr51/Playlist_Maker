@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Base.Theme.PlaylistMaker.MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/blue_main" >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,63 +14,34 @@
         android:paddingTop="14dp"
         android:paddingBottom="16dp"
         android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_22sp" />
+        android:textColor="@color/yp_white"
+        android:textSize="@dimen/text_22sp"
+        android:fontFamily="@font/ys_display_medium"
+        android:textFontWeight="500" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_layout_height"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:paddingHorizontal="@dimen/radius_button_corners"
         android:paddingTop="24dp"
-        android:paddingBottom="28dp"
-        android:paddingHorizontal="@dimen/radius_button_corners" >
+        android:paddingBottom="28dp">
 
-        <Button
+        <Button style="@style/MainActivityButtonStyle"
             android:id="@+id/search_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/main_layout_height"
-            android:layout_weight="1"
-            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
-            android:backgroundTint="@color/white"
-            android:textAllCaps="false"
             android:text="@string/searching"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_22sp"
-            app:cornerRadius="@dimen/radius_button_corners"
-            app:icon="@drawable/vector_search_icon"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
-        <Button
+            app:icon="@drawable/vector_search_icon" />
+
+        <Button style="@style/MainActivityButtonStyle"
             android:id="@+id/media_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/main_layout_height"
-            android:layout_weight="1"
-            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
-            android:backgroundTint="@color/white"
-            android:textAllCaps="false"
             android:text="@string/media"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_22sp"
-            app:cornerRadius="@dimen/radius_button_corners"
-            app:icon="@drawable/vector_media_icon"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
-        <Button
+            app:icon="@drawable/vector_media_icon" />
+
+        <Button style="@style/MainActivityButtonStyle"
             android:id="@+id/settings_button"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/main_layout_height"
-            android:layout_weight="1"
-            android:layout_marginVertical="@dimen/main_bt_lay_margine_vertical"
-            android:backgroundTint="@color/white"
-            android:textAllCaps="false"
             android:text="@string/settings"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_22sp"
-            app:cornerRadius="@dimen/radius_button_corners"
-            app:icon="@drawable/vector_settings_icon"
-            app:iconGravity="textStart"
-            app:iconTint="@color/black" />
+            app:icon="@drawable/vector_settings_icon" />
     </LinearLayout>
-</LinearLayout >
+</LinearLayout>
 

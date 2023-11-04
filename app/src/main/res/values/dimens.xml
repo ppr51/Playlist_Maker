@@ -10,4 +10,15 @@
     <dimen name="settings_item_margin_end">24dp</dimen>
     <dimen name="settings_icon_button_width">35dp</dimen>
     <dimen name="settings_button_icon_padding">0dp</dimen>
+    <dimen name="search_item_margin_start">16dp</dimen>
+    <dimen name="search_item_margin_end">16dp</dimen>
+    <dimen name="search_shape_radius">8dp</dimen>
+    <dimen name="search_frame_item_height">52dp</dimen>
+    <dimen name="search_prefix_icon_side_size">16dp</dimen>
+    <dimen name="search_string_margin_bottom_top">8dp</dimen>
+    <dimen name="search_prefix_icon_margin_left">12dp</dimen>
+    <dimen name="search_prefix_icon_margin_right">8dp</dimen>
+    <dimen name="search_prefix_icon_margin_bottom_top">10dp</dimen>
+    <dimen name="search_edittext_margin_bottom_top">8dp</dimen>
+    <dimen name="search_edittext_margin_right">40dp</dimen>
 </resources>
