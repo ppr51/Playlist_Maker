@@ -9,26 +9,25 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 class TracksViewHolder(parentView: View) : RecyclerView.ViewHolder(parentView) {
 
-    private val trackNameView: TextView      // Название композиции
-    private val artistNameView: TextView     // Имя исполнителя
-    private val trackTimeView: TextView      // Продолжительность трека
-    private val artworkUrl100View: ImageView // Ссылка на изображение обложки
-    init {
-        trackNameView = parentView.findViewById(R.id.trackName)
-        artistNameView = parentView.findViewById(R.id.artistName)
-        trackTimeView = parentView.findViewById(R.id.trackTime)
-        artworkUrl100View = parentView.findViewById(R.id.albumImage)
-    }
+    // Название композиции
+    private val trackNameView: TextView = parentView.findViewById(R.id.trackName)
+    // Имя исполнителя
+    private val artistNameView: TextView = parentView.findViewById(R.id.artistName)
+    // Продолжительность трека
+    private val trackTimeView: TextView = parentView.findViewById(R.id.trackTime)
+    // Ссылка на изображение обложки
+    private val artworkUrl100View: ImageView = parentView.findViewById(R.id.albumImage)
 
     fun bind(model: Track) {
         trackNameView.text = model.trackName
         artistNameView.text = model.artistName
         trackTimeView.text = model.trackTime
+        val cornerRadiusOfAlbumImage = 2
         Glide.with(this.itemView)
             .load(model.artworkUrl100)
             .placeholder(R.drawable.vector_placeholder)
             .centerCrop()
-            .transform(RoundedCorners(2))
+            .transform(RoundedCorners(cornerRadiusOfAlbumImage))
             .into(artworkUrl100View)
     }
 }

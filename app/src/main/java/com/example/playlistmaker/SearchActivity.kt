@@ -20,10 +20,6 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var clearButton:Button
     private lateinit var rvTracksContainer:RecyclerView
 
-
-
-
-
     private companion object {
         const val TEXT_IN_SEARCH_LINE = "TEXT_IN_SEARCH_LINE"
     }

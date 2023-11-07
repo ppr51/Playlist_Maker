@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/search_trackview_main_layout_height"
     android:orientation="vertical">
@@ -43,7 +44,7 @@
                 android:layout_height="@dimen/search_trackName_layout_height"
                 android:layout_marginTop="@dimen/search_trackName_top_margin"
                 android:gravity="center_vertical"
-                android:text="trackName" />
+                tools:text="Track Name" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
                         android:layout_marginBottom="@dimen/search_artistName_bottom_margin"
                         android:gravity="center_vertical"
                         android:paddingEnd="@dimen/search_artistName_padding_right"
-                        android:text="artistName" />
+                        tools:text="Artist Name" />
 
                     <ImageView
                         android:id="@+id/dotImage"
@@ -82,7 +83,7 @@
                         android:layout_marginBottom="@dimen/search_artistName_bottom_margin"
                         android:layout_toEndOf="@id/dotImage"
                         android:gravity="center_vertical"
-                        android:text="trackTime" />
+                        tools:text="Track Time" />
 
                 </RelativeLayout>
 
