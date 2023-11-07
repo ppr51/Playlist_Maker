@@ -66,7 +66,7 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = clearButtonVisibility(s)
-                rvTracksContainer.visibility = recyclerViewVisibility(s)
+//                rvTracksContainer.visibility = recyclerViewVisibility(s)
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -122,11 +122,11 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    private fun recyclerViewVisibility(s: CharSequence?): Int {
-        return if (s.isNullOrEmpty()) {
-            View.GONE
-        } else {
-            View.VISIBLE
-        }
-    }
+//    private fun recyclerViewVisibility(s: CharSequence?): Int {
+//        return if (s.isNullOrEmpty()) {
+//            View.GONE
+//        } else {
+//            View.VISIBLE
+//        }
+//    }
 }

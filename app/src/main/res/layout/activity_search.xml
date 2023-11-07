@@ -94,7 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/search_recyclerView_margin_top"
-        android:visibility="gone"
         />
 
 </LinearLayout>
