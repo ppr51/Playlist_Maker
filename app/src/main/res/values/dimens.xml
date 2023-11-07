@@ -36,6 +36,7 @@
     <dimen name="search_dotImage_side_size">13dp</dimen>
     <dimen name="search_trackTime_layout_width">64dp</dimen>
     <dimen name="search_artistName_padding_right">77dp</dimen>
+    <dimen name="search_dotIcon_margin_left">-77dp</dimen>
     <dimen name="search_arrowForward_side_size">24dp</dimen>
     <dimen name="search_arrowForward_left_margin">8dp</dimen>
     <dimen name="search_arrowForward_right_margin">12dp</dimen>

@@ -71,7 +71,7 @@
                         style="@style/Search_dotImage_Style"
                         android:layout_width="@dimen/search_dotImage_side_size"
                         android:layout_height="@dimen/search_dotImage_side_size"
-                        android:layout_marginStart="-77dp"
+                        android:layout_marginStart="@dimen/search_dotIcon_margin_left"
                         android:layout_marginBottom="@dimen/search_artistName_bottom_margin"
                         android:layout_toEndOf="@id/artistName" />
 
