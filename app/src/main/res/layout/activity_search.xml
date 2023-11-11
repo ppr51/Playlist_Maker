@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity"
+    android:theme="@style/Base.Theme.PlaylistMaker.SettingsActivity"
     android:orientation="vertical">
 
     <!-- Заголовок -->
@@ -85,6 +86,14 @@
                 android:visibility="gone"
                 />
         </LinearLayout>
+
     </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tracksContainerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/search_recyclerView_margin_top"
+        />
 
 </LinearLayout>

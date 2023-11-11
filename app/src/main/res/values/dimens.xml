@@ -2,6 +2,7 @@
 <resources>
     <dimen name="text_22sp">22sp</dimen>
     <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_11sp">11sp</dimen>
     <dimen name="radius_button_corners">16dp</dimen>
     <dimen name="settings_item_height">56dp</dimen>
     <dimen name="main_layout_height">0dp</dimen>
@@ -21,4 +22,24 @@
     <dimen name="search_prefix_icon_margin_bottom_top">10dp</dimen>
     <dimen name="search_edittext_margin_bottom_top">8dp</dimen>
     <dimen name="search_edittext_margin_right">40dp</dimen>
+    <dimen name="search_clearButton_iconSize">16dp</dimen>
+    <dimen name="search_recyclerView_margin_top">16dp</dimen>
+    <dimen name="search_trackview_main_layout_height">62dp</dimen>
+    <dimen name="search_albumImage_corner_radius">2dp</dimen>
+    <dimen name="search_albumImage_side_size">45dp</dimen>
+    <dimen name="search_albumImage_topbottomright_margin">8dp</dimen>
+    <dimen name="search_albumImage_left_margin">13dp</dimen>
+    <dimen name="search_trackName_layout_height">19dp</dimen>
+    <dimen name="search_trackName_top_margin">14dp</dimen>
+    <dimen name="search_trackInfo_layout_height">13dp</dimen>
+    <dimen name="search_artistName_bottom_margin">14dp</dimen>
+    <dimen name="search_dotImage_side_size">13dp</dimen>
+    <dimen name="search_trackTime_layout_width">64dp</dimen>
+    <dimen name="search_artistName_padding_right">77dp</dimen>
+    <dimen name="search_dotIcon_margin_left">-77dp</dimen>
+    <dimen name="search_arrowForward_side_size">24dp</dimen>
+    <dimen name="search_arrowForward_left_margin">8dp</dimen>
+    <dimen name="search_arrowForward_right_margin">12dp</dimen>
+    <dimen name="search_arrowForward_top_margin">18dp</dimen>
+    <dimen name="search_arrowForward_bottom_margin">19dp</dimen>
 </resources>
