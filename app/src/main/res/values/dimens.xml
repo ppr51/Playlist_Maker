@@ -3,6 +3,8 @@
     <dimen name="text_22sp">22sp</dimen>
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="text_11sp">11sp</dimen>
+    <dimen name="text_19sp">19sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
     <dimen name="radius_button_corners">16dp</dimen>
     <dimen name="settings_item_height">56dp</dimen>
     <dimen name="main_layout_height">0dp</dimen>
@@ -42,4 +44,22 @@
     <dimen name="search_arrowForward_right_margin">12dp</dimen>
     <dimen name="search_arrowForward_top_margin">18dp</dimen>
     <dimen name="search_arrowForward_bottom_margin">19dp</dimen>
+    <dimen name="nothing_found_image_frame_side_size">120dp</dimen>
+    <dimen name="nothing_found_image_union1_top_margin">3dp</dimen>
+    <dimen name="nothing_found_image_union1_left_margin">9dp</dimen>
+    <dimen name="nothing_found_image_union1_height">94dp</dimen>
+    <dimen name="nothing_found_image_union1_width">102dp</dimen>
+    <dimen name="nothing_found_image_union2_top_margin">6dp</dimen>
+    <dimen name="nothing_found_image_union2_left_margin">80dp</dimen>
+    <dimen name="nothing_found_image_union2_height">110dp</dimen>
+    <dimen name="nothing_found_image_union2_width">31dp</dimen>
+    <dimen name="nothing_found_image_sadSmile_top_margin">28dp</dimen>
+    <dimen name="nothing_found_image_sadSmile_left_margin">37dp</dimen>
+    <dimen name="nothing_found_image_sadSmile_height">69dp</dimen>
+    <dimen name="nothing_found_image_sadSmile_width">69dp</dimen>
+    <dimen name="network_problem_text_width">312dp</dimen>
+    <dimen name="search_update_button_layout_width">92dp</dimen>
+    <dimen name="search_update_button_layout_height">44dp</dimen>
+    <dimen name="search_update_button_layout_top_margin">24dp</dimen>
+    <dimen name="search_update_button_corner_radius">54dp</dimen>
 </resources>
