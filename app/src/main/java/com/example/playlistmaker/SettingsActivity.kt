@@ -1,11 +1,15 @@
 package com.example.playlistmaker
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity : AppCompatActivity() {
     @SuppressLint("IntentReset")
@@ -16,6 +20,13 @@ class SettingsActivity : AppCompatActivity() {
         val bBack = findViewById<Button>(R.id.back_from_settings_to_main_button)
         bBack.setOnClickListener{
             finish()
+        }
+
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.themeSwitcher)
+        themeSwitcher.isChecked = (applicationContext as App).isDarkThemeInSettings()
+//        Log.d("ThemeLogTag", "themeSwitcher.isChecked==${themeSwitcher.isChecked}");
+        themeSwitcher.setOnCheckedChangeListener { _, checked ->
+            (applicationContext as App).switchTheme(checked)
         }
 
         val bShareLinkOnApp = findViewById<Button>(R.id.shareLinkOnApp)
@@ -48,4 +59,5 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(userAgreementIntent)
         }
     }
+
 }

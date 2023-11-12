@@ -62,22 +62,14 @@ class SearchActivity : AppCompatActivity() {
         searchingLine.setText(textInSearchLine)
     }
 
-    fun showViewByFlag(isVisibleResultsList: Boolean,
-                       isVisibleNothingFound:Boolean,
-                       isVisibleNetworkProblem:Boolean) {
-
-        if(isVisibleResultsList)
-            rvTracksContainer.visibility = View.VISIBLE
-        else
-            rvTracksContainer.visibility = View.GONE
-        if(isVisibleNothingFound)
-            placeholderNothingFound.visibility = View.VISIBLE
-        else
-            placeholderNothingFound.visibility = View.GONE
-        if(isVisibleNetworkProblem)
-            placeholderNetworkProblem.visibility = View.VISIBLE
-        else
-            placeholderNetworkProblem.visibility = View.GONE
+    fun showViewByFlag(
+        isVisibleResultsList: Boolean,
+        isVisibleNothingFound: Boolean,
+        isVisibleNetworkProblem: Boolean
+    ) {
+        rvTracksContainer.isVisible = isVisibleResultsList
+        placeholderNothingFound.isVisible = isVisibleNothingFound
+        placeholderNetworkProblem.isVisible = isVisibleNetworkProblem
     }
 
     @SuppressLint("MissingInflatedId")
