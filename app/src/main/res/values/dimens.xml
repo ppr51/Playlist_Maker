@@ -25,6 +25,7 @@
     <dimen name="search_edittext_margin_bottom_top">8dp</dimen>
     <dimen name="search_edittext_margin_right">40dp</dimen>
     <dimen name="search_clearButton_iconSize">16dp</dimen>
+    <dimen name="searchHistoryTitle_margin_top">24dp</dimen>
     <dimen name="search_recyclerView_margin_top">16dp</dimen>
     <dimen name="search_trackview_main_layout_height">62dp</dimen>
     <dimen name="search_albumImage_corner_radius">2dp</dimen>

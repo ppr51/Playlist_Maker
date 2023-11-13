@@ -17,4 +17,6 @@
     <string name="search_network_problem">Проблемы со связью</string>
     <string name="search_need_check_network">Загрузка не удалась. Проверьте подключение к интернету</string>
     <string name="search_update">Обновить</string>
+    <string name="you_have_searched">Вы это искали</string>
+    <string name="clear_history">Очистить историю</string>
 </resources>

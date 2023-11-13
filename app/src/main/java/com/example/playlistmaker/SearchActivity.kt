@@ -1,7 +1,7 @@
 package com.example.playlistmaker
 
 import android.annotation.SuppressLint
-import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -13,7 +13,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +23,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
 
     private var textInSearchLine: String = ""
     private lateinit var searchingLine: EditText
@@ -33,6 +33,12 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var placeholderNothingFound: LinearLayout
     private lateinit var placeholderNetworkProblem: LinearLayout
     private lateinit var searchUpdateButton: Button
+    private lateinit var laySearchResults: LinearLayout
+    private lateinit var tvHistoryTitle: TextView
+    private lateinit var buttonclearSearchHistory: Button
+
+    private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var searchHist: SearchHistory
 
     private val itunesBaseUrl = "https://itunes.apple.com"
 
@@ -45,7 +51,7 @@ class SearchActivity : AppCompatActivity() {
 
     private val listTracks = ArrayList<Track>()
 
-    private val adapterTracks = TracksAdapter(listTracks)
+    private lateinit var adapterTracks:TracksAdapter
 
     private companion object {
         const val TEXT_IN_SEARCH_LINE = "TEXT_IN_SEARCH_LINE"
@@ -67,15 +73,24 @@ class SearchActivity : AppCompatActivity() {
         isVisibleNothingFound: Boolean,
         isVisibleNetworkProblem: Boolean
     ) {
-        rvTracksContainer.isVisible = isVisibleResultsList
+        laySearchResults.isVisible = isVisibleResultsList
         placeholderNothingFound.isVisible = isVisibleNothingFound
         placeholderNetworkProblem.isVisible = isVisibleNetworkProblem
+    }
+
+    fun setHistoryVisibility(isVisibleHistory: Boolean)
+    {
+        laySearchResults.isVisible = isVisibleHistory
+        tvHistoryTitle.isVisible = isVisibleHistory
+        buttonclearSearchHistory.isVisible = isVisibleHistory
     }
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        sharedPrefs = (applicationContext as App).sharedPrefs
 
         searchingLine = findViewById<EditText>(R.id.searchingLine)
         bBack = findViewById<Button>(R.id.back_from_search_to_main_button)
@@ -84,6 +99,14 @@ class SearchActivity : AppCompatActivity() {
         placeholderNothingFound = findViewById<LinearLayout>(R.id.nothing_found_placeholder)
         placeholderNetworkProblem = findViewById<LinearLayout>(R.id.network_problem_placeholder)
         searchUpdateButton = findViewById<Button>(R.id.search_update_button)
+
+        adapterTracks = TracksAdapter(this,listTracks)
+
+        laySearchResults = findViewById<LinearLayout>(R.id.search_results_layout)
+        tvHistoryTitle = findViewById<TextView>(R.id.searchHistoryTitle)
+        buttonclearSearchHistory = findViewById<Button>(R.id.clearSearchHistoryButton)
+        searchHist = SearchHistory(sharedPrefs)
+
 
         bBack.setOnClickListener {
             finish()
@@ -104,6 +127,7 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = clearButtonVisibility(s)
+                setHistoryVisibility(searchingLine.hasFocus() && s?.isEmpty()==true)
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -112,6 +136,25 @@ class SearchActivity : AppCompatActivity() {
             }
         }
         searchingLine.addTextChangedListener(searchLineTextWatcher)
+        searchingLine.setOnFocusChangeListener { _, hasFocus ->
+            // проверяем пуста ли история
+            val isHistoryEmpty = searchHist.getHistoryTracks().isEmpty()
+            // Включаем видимость истории только в случае если:
+            // -фокус на строке поиска,
+            // -пустая строка поиска,
+            // -не пустая история
+            val isVisibleHistory = hasFocus
+                    && searchingLine.text.isEmpty()
+                    && !isHistoryEmpty
+            setHistoryVisibility(isVisibleHistory )
+            if(isVisibleHistory) updateRecyclerViewByHistory()
+        }
+        buttonclearSearchHistory.setOnClickListener {
+            searchHist.clearHistory()
+            updateRecyclerViewByHistory()
+            // после очистки истории скрываем панель истории
+            setHistoryVisibility(false)
+        }
 
         rvTracksContainer.layoutManager = LinearLayoutManager(this)
         rvTracksContainer.adapter = adapterTracks
@@ -170,6 +213,21 @@ class SearchActivity : AppCompatActivity() {
                     Log.d("SearchLogTag", "onFailure: $t");
                 }
             })
+    }
+
+    // обработка нажатия на трэк в списке трэков
+    override fun onTrackClick(track: Track) {
+//        Log.d("SearchLogTag", "2click on track with trackName==${track.trackName}");
+        searchHist.addNewTrack(track)
+        if(buttonclearSearchHistory.isVisible)
+            updateRecyclerViewByHistory()
+    }
+
+    fun updateRecyclerViewByHistory()
+    {
+        listTracks.clear()
+        listTracks.addAll(searchHist.getHistoryTracks())
+        adapterTracks.notifyDataSetChanged()
     }
 
 }

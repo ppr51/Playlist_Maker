@@ -1,5 +1,6 @@
 package com.example.playlistmaker
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.content.Context
@@ -13,8 +14,9 @@ const val IS_DARK_THEME_ENABLED_KEY = "key_is_dark_theme_enabled"
 
 class App : Application() {
 
-    var darkTheme: Boolean = false
-    private lateinit var sharedPrefs: SharedPreferences
+    private var darkTheme: Boolean = false
+    lateinit var sharedPrefs: SharedPreferences
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate() {
         super.onCreate()
 
