@@ -37,15 +37,14 @@
     <FrameLayout style="@style/SettingsActivity_FrameLayoutStyle"
         android:layout_marginTop="24dp">
 
-        <TextView style="@style/SettingsActivity_TextStyle"
-            android:text="@string/black_theme" />
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            style="@style/SettingsActivity_themeSwithcher_style"
+            android:id="@+id/themeSwitcher"
+            android:text="@string/black_theme"
+            android:layout_gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            />
     </FrameLayout>
 
 <!--    Поделиться приложением-->

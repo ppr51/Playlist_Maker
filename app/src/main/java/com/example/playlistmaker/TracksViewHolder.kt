@@ -14,10 +14,13 @@ class TracksViewHolder(parentView: View) : RecyclerView.ViewHolder(parentView) {
 
     // Название композиции
     private val trackNameView: TextView = parentView.findViewById(R.id.trackName)
+
     // Имя исполнителя
     private val artistNameView: TextView = parentView.findViewById(R.id.artistName)
+
     // Продолжительность трека
     private val trackTimeView: TextView = parentView.findViewById(R.id.trackTime)
+
     // Ссылка на изображение обложки
     private val artworkUrl100View: ImageView = parentView.findViewById(R.id.albumImage)
 
@@ -25,7 +28,7 @@ class TracksViewHolder(parentView: View) : RecyclerView.ViewHolder(parentView) {
         trackNameView.text = model.trackName
         artistNameView.text = model.artistName
 
-        if(model.trackTime != null) {
+        if (model.trackTime != null) {
 //            Log.d("SearchLogTag", " was model.trackTime==${model.trackTime}");
             var longNum: Long? = model.trackTime.trim().toLongOrNull()
             if (longNum == null) {
@@ -36,9 +39,7 @@ class TracksViewHolder(parentView: View) : RecyclerView.ViewHolder(parentView) {
                     SimpleDateFormat("mm:ss", Locale.getDefault())
                         .format(longNum)
             }
-        }
-        else
-        {
+        } else {
             trackTimeView.text = ""
         }
         val cornerRadiusOfAlbumImage = 2

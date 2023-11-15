@@ -21,6 +21,14 @@
         <item name="android:layout_marginStart">@dimen/settings_item_margin_start</item>
         <item name="android:layout_marginEnd">@dimen/settings_item_margin_end</item>
     </style>
+    <style name="SettingsActivity_themeSwithcher_style">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textSize">@dimen/text_16sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="thumbTint">@color/yp_blue</item>
+        <item name="trackTint">@color/yp_blue_light</item>
+    </style>
     <style name="SettingsActivity_TextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
@@ -72,6 +80,13 @@
         <item name="iconSize">@dimen/search_clearButton_iconSize</item>
     </style>
 
+    <style name="searchHistoryTitle_style">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textSize">@dimen/text_19sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textAlignment">center</item>
+    </style>
     <style name="Search_CardView_ImageAlbum_Style">
         <item name="cardBackgroundColor">@android:color/transparent</item>
         <item name="cardElevation">0dp</item>
@@ -102,7 +117,15 @@
         <item name="android:src">@drawable/vector_arrow_forward</item>
         <item name="tint">@color/yp_white</item>
     </style>
-
+    <style name="clearSearchHistoryButton_style" parent="Widget.MaterialComponents.Button.UnelevatedButton" >
+        <item name="android:backgroundTint">@color/yp_white</item>
+        <item name="cornerRadius">@dimen/search_update_button_corner_radius</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/yp_black</item>
+        <item name="android:textSize">@dimen/text_14sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
     <style name="Search_Image_Frame_Style">
         <item name="android:background">@android:color/transparent</item>
     </style>

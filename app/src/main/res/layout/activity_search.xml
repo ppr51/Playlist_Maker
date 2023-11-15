@@ -91,13 +91,44 @@
 
     </FrameLayout>
 
-    <!--  Список трэков-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tracksContainerRecyclerView"
+    <LinearLayout
+        android:id="@+id/search_results_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/search_recyclerView_margin_top"
-        android:visibility="gone" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView style="@style/searchHistoryTitle_style"
+            android:id="@+id/searchHistoryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/searchHistoryTitle_margin_top"
+            android:gravity="center_vertical"
+            android:text="@string/you_have_searched"
+            android:visibility="gone"/>
+
+        <!--  Список трэков-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tracksContainerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/search_recyclerView_margin_top"
+            android:layout_weight="1"
+            />
+
+        <Button
+            android:id="@+id/clearSearchHistoryButton"
+            style="@style/clearSearchHistoryButton_style"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_update_button_layout_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/search_update_button_layout_top_margin"
+            android:text="@string/clear_history"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
 
     <!-- Плэйсхолдер когда ничего не нашлось-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
