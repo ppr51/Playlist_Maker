@@ -51,7 +51,7 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
 
     private val listTracks = ArrayList<Track>()
 
-    private lateinit var adapterTracks:TracksAdapter
+    private lateinit var adapterTracks: TracksAdapter
 
     private companion object {
         const val TEXT_IN_SEARCH_LINE = "TEXT_IN_SEARCH_LINE"
@@ -78,8 +78,7 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
         placeholderNetworkProblem.isVisible = isVisibleNetworkProblem
     }
 
-    fun setHistoryVisibility(isVisibleHistory: Boolean)
-    {
+    fun setHistoryVisibility(isVisibleHistory: Boolean) {
         laySearchResults.isVisible = isVisibleHistory
         tvHistoryTitle.isVisible = isVisibleHistory
         buttonclearSearchHistory.isVisible = isVisibleHistory
@@ -100,7 +99,7 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
         placeholderNetworkProblem = findViewById<LinearLayout>(R.id.network_problem_placeholder)
         searchUpdateButton = findViewById<Button>(R.id.search_update_button)
 
-        adapterTracks = TracksAdapter(this,listTracks)
+        adapterTracks = TracksAdapter(this, listTracks)
 
         laySearchResults = findViewById<LinearLayout>(R.id.search_results_layout)
         tvHistoryTitle = findViewById<TextView>(R.id.searchHistoryTitle)
@@ -117,7 +116,11 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
             val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager
             inputMethodManager?.hideSoftInputFromWindow(searchingLine.windowToken, 0)
             searchingLine.clearFocus()
-            showViewByFlag(false,false,false)
+            showViewByFlag(
+                isVisibleResultsList = false,
+                isVisibleNothingFound = false,
+                isVisibleNetworkProblem = false
+            )
         }
 
         val searchLineTextWatcher = object : TextWatcher {
@@ -127,7 +130,7 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = clearButtonVisibility(s)
-                setHistoryVisibility(searchingLine.hasFocus() && s?.isEmpty()==true)
+                setHistoryVisibility(searchingLine.hasFocus() && s?.isEmpty() == true)
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -146,8 +149,8 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
             val isVisibleHistory = hasFocus
                     && searchingLine.text.isEmpty()
                     && !isHistoryEmpty
-            setHistoryVisibility(isVisibleHistory )
-            if(isVisibleHistory) updateRecyclerViewByHistory()
+            setHistoryVisibility(isVisibleHistory)
+            if (isVisibleHistory) updateRecyclerViewByHistory()
         }
         buttonclearSearchHistory.setOnClickListener {
             searchHist.clearHistory()
@@ -181,15 +184,22 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
         }
     }
 
-    private fun startSearch(){
-        Log.d("SearchLogTag", "startSearch searchingLine.text.toString()==${searchingLine.text.toString()}");
+    private fun startSearch() {
+        Log.d(
+            "SearchLogTag",
+            "startSearch searchingLine.text.toString()==${searchingLine.text.toString()}"
+        );
         itunesService.getTracks(searchingLine.text.toString())
             .enqueue(object : Callback<TracksResponse> {
                 override fun onResponse(
                     call: Call<TracksResponse>,
                     response: Response<TracksResponse>
                 ) {
-                    showViewByFlag(false,false,false)
+                    showViewByFlag(
+                        isVisibleResultsList = false,
+                        isVisibleNothingFound = false,
+                        isVisibleNetworkProblem = false
+                    )
 
                     Log.d("SearchLogTag", "onResponse code==${response.code().toString()}");
                     if (response.code() == 200) {
@@ -199,17 +209,33 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
                             adapterTracks.notifyDataSetChanged()
                         }
                         if (listTracks.isEmpty()) {
-                            showViewByFlag(false,true,false)
+                            showViewByFlag(
+                                isVisibleResultsList = false,
+                                isVisibleNothingFound = true,
+                                isVisibleNetworkProblem = false
+                            )
                         } else {
-                            showViewByFlag(true,false,false)
+                            showViewByFlag(
+                                isVisibleResultsList = true,
+                                isVisibleNothingFound = false,
+                                isVisibleNetworkProblem = false
+                            )
                         }
                     } else {
-                        showViewByFlag(false,false,true)
+                        showViewByFlag(
+                            isVisibleResultsList = false,
+                            isVisibleNothingFound = false,
+                            isVisibleNetworkProblem = true
+                        )
                     }
                 }
 
                 override fun onFailure(call: Call<TracksResponse>, t: Throwable) {
-                    showViewByFlag(false,false,true)
+                    showViewByFlag(
+                        isVisibleResultsList = false,
+                        isVisibleNothingFound = false,
+                        isVisibleNetworkProblem = true
+                    )
                     Log.d("SearchLogTag", "onFailure: $t");
                 }
             })
@@ -219,12 +245,11 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
     override fun onTrackClick(track: Track) {
 //        Log.d("SearchLogTag", "2click on track with trackName==${track.trackName}");
         searchHist.addNewTrack(track)
-        if(buttonclearSearchHistory.isVisible)
+        if (buttonclearSearchHistory.isVisible)
             updateRecyclerViewByHistory()
     }
 
-    fun updateRecyclerViewByHistory()
-    {
+    fun updateRecyclerViewByHistory() {
         listTracks.clear()
         listTracks.addAll(searchHist.getHistoryTracks())
         adapterTracks.notifyDataSetChanged()

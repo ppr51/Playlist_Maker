@@ -9,31 +9,31 @@ import android.content.res.Configuration
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 
-const val PLAYLISTMAKER_PREFERENCES = "playlistmaker_preferences"
-const val IS_DARK_THEME_ENABLED_KEY = "key_is_dark_theme_enabled"
-
 class App : Application() {
+
+    companion object {
+        const val PLAYLISTMAKER_PREFERENCES = "playlistmaker_preferences"
+        const val IS_DARK_THEME_ENABLED_KEY = "key_is_dark_theme_enabled"
+    }
 
     private var darkTheme: Boolean = false
     lateinit var sharedPrefs: SharedPreferences
+
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate() {
         super.onCreate()
 
         sharedPrefs = getSharedPreferences(PLAYLISTMAKER_PREFERENCES, MODE_PRIVATE)
 
-        var isSystemDarkOn = isDarkThemeEnabledOnSystem(this)
-//        Log.d("ThemeLogTag", "isSystemDarkOn==${isSystemDarkOn.toString()}");
-        var isDarkOnInPrefrences= sharedPrefs.getString(IS_DARK_THEME_ENABLED_KEY, isSystemDarkOn.toString()).toBoolean()
+        val isSystemDarkOn = isDarkThemeEnabledOnSystem(this)
+        val isDarkOnInPrefrences =
+            sharedPrefs.getString(IS_DARK_THEME_ENABLED_KEY, isSystemDarkOn.toString()).toBoolean()
 //        Log.d("ThemeLogTag", "get  var isDarkOnInPrefrences==${isDarkOnInPrefrences.toString()}");
 
-            switchTheme(isDarkOnInPrefrences)
+        switchTheme(isDarkOnInPrefrences)
     }
 
-    fun isDarkThemeInSettings():Boolean
-    {
-        return darkTheme
-    }
+    fun isDarkThemeInSettings(): Boolean = darkTheme
 
     private fun isDarkThemeEnabledOnSystem(context: Context): Boolean {
         return context.resources.configuration.uiMode and
