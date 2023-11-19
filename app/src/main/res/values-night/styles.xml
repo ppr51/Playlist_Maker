@@ -164,4 +164,64 @@
         <item name="android:textFontWeight">500</item>
     </style>
 
+    <style name="PlayerTrackGrayLabelsStyle">
+        <item name="android:textColor">@color/yp_text_gray</item>
+        <item name="android:textSize">@dimen/text_13sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="PlayerTrackTextDescriptionsStyle">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/text_13sp</item>
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="PlayerListenTimeTextStyle">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/text_14sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Player_PlayButton_Style">
+        <item name="android:src">@drawable/vector_play_button</item>
+        <item name="tint">@color/yp_white</item>
+    </style>
+    <style name="Player_AddToFavButton_Style">
+        <item name="android:src">@drawable/vector_add_to_fav_button</item>
+        <item name="tint">@color/yp_white</item>
+    </style>
+    <style name="Player_LikeButton_Style">
+        <item name="android:src">@drawable/vector_like_button</item>
+        <item name="tint">@color/yp_white</item>
+    </style>
+    <style name="PlayerGroupNameTextStyle">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textSize">@dimen/text_14sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="PlayerTrackNameTextStyle">
+        <item name="android:textColor">@color/yp_white</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textSize">@dimen/text_22sp</item>
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>

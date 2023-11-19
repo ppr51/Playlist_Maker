@@ -1,6 +1,7 @@
 package com.example.playlistmaker
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +18,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -243,10 +245,14 @@ class SearchActivity : AppCompatActivity(), TracksAdapter.OnItemClickListener {
 
     // обработка нажатия на трэк в списке трэков
     override fun onTrackClick(track: Track) {
-//        Log.d("SearchLogTag", "2click on track with trackName==${track.trackName}");
         searchHist.addNewTrack(track)
         if (buttonclearSearchHistory.isVisible)
             updateRecyclerViewByHistory()
+        // передаём информацию о треке в плэйер
+        val playerIntent = Intent(this@SearchActivity, PlayerActivity::class.java)
+        val jsonStr = Gson().toJson(track)
+        playerIntent.putExtra(Track::class.simpleName, jsonStr)
+        startActivity(playerIntent)
     }
 
     fun updateRecyclerViewByHistory() {

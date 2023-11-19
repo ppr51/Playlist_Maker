@@ -5,6 +5,7 @@
     <dimen name="text_11sp">11sp</dimen>
     <dimen name="text_19sp">19sp</dimen>
     <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_13sp">13sp</dimen>
     <dimen name="radius_button_corners">16dp</dimen>
     <dimen name="settings_item_height">56dp</dimen>
     <dimen name="main_layout_height">0dp</dimen>
@@ -63,4 +64,18 @@
     <dimen name="search_update_button_layout_height">44dp</dimen>
     <dimen name="search_update_button_layout_top_margin">24dp</dimen>
     <dimen name="search_update_button_corner_radius">54dp</dimen>
+    <dimen name="player_back_button_side">24dp</dimen>
+    <dimen name="player_left_right_guidelines_step">16dp</dimen>
+    <dimen name="player_back_button_top_margin">16dp</dimen>
+    <dimen name="player_label_country_bottom_margin">28dp</dimen>
+    <dimen name="player_label_genre_bottom_margin">16dp</dimen>
+    <dimen name="player_descriptions_start_margin">16dp</dimen>
+    <dimen name="player_listen_time_margin_bottom">40dp</dimen>
+    <dimen name="player_button_margin_bottom">4dp</dimen>
+    <dimen name="player_add_to_fav_margin_start">8dp</dimen>
+    <dimen name="player_like_button_margin_end">8dp</dimen>
+    <dimen name="player_group_name_text_margin_bottom">30dp</dimen>
+    <dimen name="player_track_name_text_margin_bottom">12dp</dimen>
+    <dimen name="player_album_image_margin_top">24dp</dimen>
+    <dimen name="player_album_image_margin_bottom">24dp</dimen>
 </resources>

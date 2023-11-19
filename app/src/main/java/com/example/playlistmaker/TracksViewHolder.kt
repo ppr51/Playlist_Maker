@@ -29,19 +29,11 @@ class TracksViewHolder(parentView: View) : RecyclerView.ViewHolder(parentView) {
         artistNameView.text = model.artistName
 
         if (model.trackTime != null) {
-//            Log.d("SearchLogTag", " was model.trackTime==${model.trackTime}");
-            var longNum: Long? = model.trackTime.trim().toLongOrNull()
-            if (longNum == null) {
-                trackTimeView.text = model.trackTime
-//                Log.d("SearchLogTag", " wrong model.trackTime==${model.trackTime}");
-            } else {
-                trackTimeView.text =
-                    SimpleDateFormat("mm:ss", Locale.getDefault())
-                        .format(longNum)
-            }
+            trackTimeView.text = getTrackTimeFromMillis(model.trackTime)
         } else {
             trackTimeView.text = ""
         }
+
         val cornerRadiusOfAlbumImage = 2
         Glide.with(this.itemView)
             .load(model.artworkUrl100)
